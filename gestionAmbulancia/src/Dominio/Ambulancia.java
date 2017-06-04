@@ -2,6 +2,7 @@ package Dominio;
 
 public class Ambulancia {
 
+    //test
     String idAmbulancia;
     boolean ocupada;
     boolean habilitada; //true = buen habilitada, false = deshabilitada
