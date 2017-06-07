@@ -28,4 +28,6 @@ public class testCrearAmbulancia {
         g.registrarAmbulancia("ABC123", 1);//Ingreso una ambulancia que ya existe
         Assert.assertEquals(Isistema.TipoRet.OK, g.registrarAmbulancia("ABC123", 1));
     }
+    
+    //Agegar cuando no existe la cuidad. 
 }
