@@ -1,5 +1,8 @@
 package Dominio;
 
+import TAD.ListaChofer;
+import TAD.NodoChofer;
+
 public class Ambulancia {
 
     String idAmbulancia;
@@ -7,13 +10,23 @@ public class Ambulancia {
     boolean habilitada; //true = buen habilitada, false = deshabilitada
     int idCiudadActual;
     int cantEmergencias;
+    ListaChofer choferes = new ListaChofer();
+
+    //Controlar si funciona
+    public void setChoferes(NodoChofer chofer) {
+        this.choferes.getHead().enlazarSiguiente(chofer);
+    }
+
+    public ListaChofer getChoferes() {
+        return choferes;
+    }
 
     public Ambulancia(String idAmbulancia, int idCiudadActual) {
         this.idAmbulancia = idAmbulancia;
         this.idCiudadActual = idCiudadActual;
         this.habilitada = true;
         this.ocupada = false;
-        this.cantEmergencias =0;
+        this.cantEmergencias = 0;
     }
 
     public String getIdAmbulancia() {
@@ -58,7 +71,7 @@ public class Ambulancia {
 
     public String mostrarAbmbulancia() {
 
-        return "Id: " + idAmbulancia +" "+ "Estado actual: " + habilitada +" "+ "ocupada: "+ocupada
-                + " "+ "Se encuentra en la cuidad: " + idCiudadActual +" "+ "# Emergencia: " + cantEmergencias + "\n";
+        return "Id: " + idAmbulancia + " " + "Estado actual: " + habilitada + " " + "ocupada: " + ocupada
+                + " " + "Se encuentra en la cuidad: " + idCiudadActual + " " + "# Emergencia: " + cantEmergencias + "\n";
     }
 }

@@ -58,8 +58,14 @@ public class GestionAmbulancia implements Isistema {
     public TipoRet registrarAmbulancia(String ambulanciaId, int ciudadID) {
         boolean retorno = false;
 
-        if (buscarAmbulancia(ambulanciaId).equals(TipoRet.OK)) {
-            System.out.println("La ambulancia ya existe");
+        if (ambulancias.getSize() > 0) {
+            if (ambulancias.getAmbulancia(ambulanciaId)!=null) {
+                System.out.println("La ambulancia ya existe");
+            } else {
+                Ambulancia a = new Ambulancia(ambulanciaId, ciudadID);
+                ambulancias.agregarInicio(a);
+                retorno = true;
+            }
         } else {
             Ambulancia a = new Ambulancia(ambulanciaId, ciudadID);
             ambulancias.agregarInicio(a);
@@ -274,12 +280,12 @@ public class GestionAmbulancia implements Isistema {
 
     //METODOS EXTRA
     public void inicializador() {
-        agregarCiudad("Montevideo");
-        agregarCiudad("Maldonado");
-        agregarCiudad("Canelones");
-        agregarCiudad("Artigas");
-        agregarCiudad("Cerro Largo");
-        agregarCiudad("Flores");
+//        agregarCiudad("Montevideo");
+//        agregarCiudad("Maldonado");
+//        agregarCiudad("Canelones");
+//        agregarCiudad("Artigas");
+//        agregarCiudad("Cerro Largo");
+//        agregarCiudad("Flores");
         registrarAmbulancia("ABC123", 1);
         registrarAmbulancia("STD456", 2);
         registrarAmbulancia("ZFB895", 3);
